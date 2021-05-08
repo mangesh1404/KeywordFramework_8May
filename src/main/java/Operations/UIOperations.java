@@ -1,14 +1,17 @@
 package Operations;
 
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 
 public class UIOperations {
 	WebDriver driver;
+	
 	public UIOperations(WebDriver driver){
 		this.driver = driver;
 	}
@@ -32,6 +35,12 @@ public class UIOperations {
 		//Get url of application
 		driver.get(p.getProperty(value));
 		break;
+		
+	case "READTABLE":
+		List<WebElement>rows =driver.findElements(this.getObject(p, objectName, objectType));
+		for(WebElement row :rows) {
+			System.out.println(row.getText());
+		}
 	}
 	}
 	

@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.excelRead.ReadExcel;
@@ -59,6 +60,8 @@ public class TestExecution {
 	    			}
 			 
 		 }
+		 
+		 Assert.assertEquals(driver.getTitle(), "JavaByKiran | User");
 		 
 	}
 	
