@@ -16,10 +16,8 @@ public class UIOperations {
 		this.driver = driver;
 	}
 	
-	
 	public void perform(Properties p,String operation,String objectName,String objectType,String value)throws Exception {
 		switch (operation.toUpperCase()) {
-		
 		
 	case "CLICK":
 		//Perform click
