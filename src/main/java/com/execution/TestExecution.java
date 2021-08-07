@@ -18,10 +18,11 @@ import Operations.UIOperations;
 
 public class TestExecution {
 	DataFormatter df = new DataFormatter();
+	
 	@Test
 	public void test01()throws Exception {
 		
-		System.setProperty("webdriver.chrome.driver", "C:/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		ReadExcel readfile=new ReadExcel();
@@ -39,13 +40,15 @@ public class TestExecution {
 		 for(int i=1;i<rows;i++) {
 			 
 			Row row= sheet.getRow(i);
-			if(df.formatCellValue(row.getCell(0)).length()==0){
+			
+			String cellValue=df.formatCellValue(row.getCell(0));
+			
+			if(cellValue.length()==0){
 	    		
 	    			System.out.println(row.getCell(1).toString()+"----"+ row.getCell(2).toString()+"----"+
 	    			row.getCell(3).toString()+"----"+ row.getCell(4).toString());
 	    			Cell cell=row.getCell(4);
-	    			String data= df.formatCellValue(cell);
-	    				
+	    			String data= df.formatCellValue(cell);	    				
 	    			operation.perform(property, row.getCell(1).toString(), row.getCell(2).toString(),
 	    				row.getCell(3).toString(), data);
 	    	    }
