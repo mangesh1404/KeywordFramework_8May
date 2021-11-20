@@ -35,8 +35,8 @@ public class TestExecution {
 		 
 		 Sheet sheet =readfile.getSheet("TestCase.xlsx", "Login");
 		 
-		 int rows=sheet.getPhysicalNumberOfRows();
-		 
+		 int rows=sheet.getPhysicalNumberOfRows();//no. of rows in whci we have a data
+		 System.out.println(rows);
 		 for(int i=1;i<rows;i++) {
 			 
 			Row row= sheet.getRow(i);
@@ -59,7 +59,7 @@ public class TestExecution {
 			 
 		 }
 		 
-		 Assert.assertEquals(driver.getTitle(), "JavaByKiran | User");
+		// Assert.assertEquals(driver.getTitle(), "JavaByKiran | User");
 		 
 	}
 	

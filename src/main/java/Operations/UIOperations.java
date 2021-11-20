@@ -3,9 +3,11 @@ package Operations;
 import java.util.List;
 import java.util.Properties;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 
@@ -39,6 +41,18 @@ public class UIOperations {
 		for(WebElement row :rows) {
 			System.out.println(row.getText());
 		}
+		break;
+		
+	case "SELECTVALUE":
+		WebElement state=driver.findElement(this.getObject(p,objectName,objectType));
+		Select sel = new Select(state);
+		sel.selectByVisibleText(value);
+		break;
+		
+	case "ALERTHANDLE":
+		Alert al = driver.switchTo().alert();
+		al.accept();
+		break;
 	}
 	}
 	
